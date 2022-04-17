@@ -5,6 +5,13 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+.navbarbgnew{
+	background-image: linear-gradient(to right, #004567, #38538d, #7b58a6, #c254a8, #ff5092) !important;
+	border: none !important;
+}
+.buttonbg{
+    background-color: #004567 !important;
+}
 body {
     background-color: #ffffff;
 }

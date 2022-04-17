@@ -4,7 +4,7 @@
 	session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
-	header('location:login.php');
+	header('location:home.php');
 	exit;
 }
 
@@ -45,7 +45,7 @@ if (!isset($_SESSION['loggedin'])) {
 	<meta http-equiv="Content-Type"
 		content="text/html; charset=UTF-8">
 
-	<title>View List</title>
+	<title>Home</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
@@ -53,26 +53,41 @@ if (!isset($_SESSION['loggedin'])) {
 </head>
 
 <body class="loggedin">
-		<nav class="navtop">
-			<div>
-				<h1>Library Management System User profile</h1>
-				<a href="index2.php"><i class="fas fa-user-circle"></i>Home</a>
-				<a href="mybooks.php"><i class="fas fa-user-circle"></i>My books</a>
-				<a href="memberProfile.php"><i class="fas fa-user-circle"></i>Profile</a>
-				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
-			
-			</div>
-		</nav>
-		<div class="content">
+		
+		<nav class="navbar navbar-expand-lg navbar-dark bg-success navbarbgnew" >
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">LMS</a>
 
-	<div class="container mt-5">
-	<div class="row">
-        <a href="add.php">
-		<button class="btn btn-success" Type="submit" >
-          Add books
-        </button>
-		</a>
-	</div>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="index2.php">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+	  <a class="nav-link" href="mybooks.php">My books</a>
+      </li>
+	  <li class="nav-item">
+	  <a class="nav-link" href="userhistory.php">History</a>
+      </li>
+	  <li class="nav-item">
+	  <a class="nav-link" href="memberProfile.php">Profile</a>
+      </li>
+	  <li class="nav-item">
+	  <a class="nav-link" href="logout.php">Logout</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+</nav>
+		<div class="content">
+<center><div class="container mt-5">
+	<div class="row ">
+       <h2>Available books</h2> 
+	</div></center>
+	
 
 
 		<!-- Grocery Cards -->
@@ -111,13 +126,15 @@ if (!isset($_SESSION['loggedin'])) {
 						<?php } ?>
 						
 					
-							<a href="bookview.php?bookid=<?php echo $qq['bookId'];?>">
-							<input type="button" value="Add to Cart" <?php if($qq["bookQty"]>0){}else{echo ' disabled=disabled ';}?>/>
+							
+					</div>
+					<a href="bookview.php?bookid=<?php echo $qq['bookId'];?>">
+							<input class="btn btn-dark buttonbg" style="width:100%;"  type="button" value="Borrow" <?php if($qq["bookQty"]>0){}else{echo ' disabled=disabled ';}?>/>
 						
 							</a>
-					</div>
 				</div>
 					<br>
+					
 			</div>
 			<?php
 			}

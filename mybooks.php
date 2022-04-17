@@ -8,27 +8,12 @@ if (!isset($_SESSION['loggedin'])) {
 	exit;
 }
 
-	//on the second page you check if that session is true, else redirect to the login page  
-	//  if($_SESSION['loggedin'])
-	//  {
-	
-	//  }
-	// 	 //allow
-	//  else{
-	// 	 //redirect to the login page
-	// 	 header('location:login.php');
-	// 	}
-	// if (isset($_POST['btn'])) {
-	// 	$date=$_POST['idate'];
-	// 	$q="select * from bookstb where Date='$date'";
-	// 	$query=mysqli_query($con,$q);
-	// }
-	// else {
 		
 $memberid=$_SESSION['id'];
 
-        $q= "select * from issuetb where memberId='$memberid'";
-		$query=mysqli_query($con,$q);
+$q= "select * from issuetb where memberId='$memberid' and returned='NO'  order by issueId desc";
+$query=mysqli_query($con,$q);
+
 		$p= "select * from membertb";
 		$query1=mysqli_query($con,$p);
 		$pp=mysqli_fetch_array($query1);
@@ -42,6 +27,7 @@ $stmt->bind_result($issueId,$issueDate,$returnDate,$bookId, $memberId);
 $stmt->fetch();
 $stmt->close();
 
+
 	//set the session on the login page
 	
 ?>
@@ -52,7 +38,7 @@ $stmt->close();
 	<meta http-equiv="Content-Type"
 		content="text/html; charset=UTF-8">
 
-	<title>View List</title>
+	<title>My books</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
@@ -60,19 +46,39 @@ $stmt->close();
 </head>
 
 <body class="loggedin">
-		<nav class="navtop">
-			<div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-success navbarbgnew" >
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">LMS</a>
 
-				<h1>Library Management System User profile</h1>
-				<a href="index2.php"><i class="fas fa-user-circle"></i>Home</a>
-                <a href="mybooks.php"><i class="fas fa-user-circle"></i>My books</a>
-               
-				<a href="memberProfile.php"><i class="fas fa-user-circle"></i>Profile</a>
-				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
-			
-			</div>
-		</nav>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="index2.php">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+	  <a class="nav-link" href="mybooks.php">My books</a>
+      </li>
+	  <li class="nav-item">
+	  <a class="nav-link" href="userhistory.php">History</a>
+      </li>
+	  <li class="nav-item">
+	  <a class="nav-link" href="memberProfile.php">Profile</a>
+      </li>
+	  <li class="nav-item">
+	  <a class="nav-link" href="logout.php">Logout</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+</nav>
 		<div class="content">
+		<center><div class="container mt-5">
+	<div class="row ">
+       <h2>My books</h2> 
+	</div></center>
 
 	<div class="container mt-5">
 
@@ -87,34 +93,36 @@ $stmt->close();
 				<form>
 				<div class="card">
 					<div class="card-body">
+					
 						<h5 class="card-title">
-                        <?php echo
+                        Issue ID : <?php echo
 							$qq['issueId']; ?>
 						</h5>
 						<h6>
-						<?php if($qq["returned"]=="NO") {echo 'NOT RETURNED';}else{echo 'RETURNED';}?>
+						<?php if($qq["returned"]=="NO") {echo '<font color=red>NOT RETURNED</font>';}
+						else{echo '<font color=green>RETURNED</font>';}?>
 						</h6>
                         <h6 class="card-subtitle mb-2 text-muted"> Book ID : 
 							<?php echo
-							$qq['issueDate']; ?>
+							$qq['bookId']; ?>
 						</h6><br>
 						
 						<h6 class="card-subtitle mb-2 text-muted">
 						Issue date :  <?php echo
-							$qq['returnDate']; ?>
+							$qq['issueDate']; ?>
 						</h6>
 						<h6 class="card-subtitle mb-2 text-muted"> Return date : 
                         <?=$returnDate?>
 						
 						</h6>
-						<?php echo $qq['issueId'];?>
-                        <a href="return.php?issueid=<?php echo $qq['issueId'];?>" class="card-link">
-						<input type="button" value="Return" <?php if($qq["returned"]=="NO"){}else{echo ' disabled=disabled ';}?>/>
-						</a>
+						
+                       
                         
 						
 					</div>
-				</div>
+				</div> <a href="return.php?issueid=<?php echo $qq['issueId'];?>" class="card-link">
+						<input  style="width:100%;" type="button " value="Return" <?php if($qq["returned"]=="NO"){echo '  class="btn btn-danger" ';}else{echo '  class="btn btn-danger" disabled ';}?>/>
+						</a>
 				</form><br>
 			</div>
 			<?php

@@ -47,11 +47,18 @@ if ($stmt = $con->prepare('SELECT adminId, password FROM admintb WHERE username 
         } else {
             // Incorrect password
             echo 'Incorrect username and/or password!';
+            header('location:invalidcred.php');
+
+
+
+
+
            
         }
     } else {
         // Incorrect username
         echo 'Incorrect username and/or password!';
+        header('location:invalidcred.php');
         
 
     }

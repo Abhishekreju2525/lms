@@ -53,11 +53,13 @@ if ($stmt = $con->prepare('SELECT memberId, password FROM membertb WHERE usernam
         } else {
             // Incorrect password
             echo 'Incorrect username and/or password!';
+            header('location:invalidcred.php');
            
         }
     } else {
         // Incorrect username
         echo 'Incorrect username and/or password!';
+        header('location:invalidcred.php');
         
 
     }

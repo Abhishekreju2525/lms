@@ -32,23 +32,42 @@ $stmt->close();
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Profile Page</title>
+		<title>My profile</title>
 		<link rel="stylesheet" href="css/indexstyle.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	</head>
 	<body class="loggedin">
-		<nav class="navtop">
-			<div>
-			<h1>Library Management System</h1>
-				<a href="index2.php"><i class="fas fa-user-circle"></i>Home</a>
-				<a href="mybooks.php"><i class="fas fa-user-circle"></i>My books</a>
-                <a href="memberProfile.php"><i class="fas fa-user-circle"></i>Profile</a>
-				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
-			
-			</div>
-		</nav>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-success navbarbgnew" >
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">LMS</a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="index2.php">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+	  <a class="nav-link" href="mybooks.php">My books</a>
+      </li>
+	  <li class="nav-item">
+	  <a class="nav-link" href="userhistory.php">History</a>
+      </li>
+	  <li class="nav-item">
+	  <a class="nav-link" href="memberProfile.php">Profile</a>
+      </li>
+	  <li class="nav-item">
+	  <a class="nav-link" href="logout.php">Logout</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+</nav>
 		<div class="content">
-			<h2>Profile Page</h2>
+			<h2>My profile</h2>
 			<div>
 				<p>Account details</p>
 				<table>
@@ -58,6 +77,11 @@ $stmt->close();
 						<td>Name</td>
 						
 					<td><?php echo $_SESSION['name']?></td>
+					</tr>
+					<tr>
+						<td>ID</td>
+						
+					<td><?php echo $_SESSION['id']?></td>
 					</tr>
 					<tr>
 						<td>Branch</td>
