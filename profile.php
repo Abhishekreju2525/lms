@@ -1,19 +1,13 @@
 <?php
 // We need to use sessions, so you should always start sessions using the below code.
+include("connect.php");
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
 	header('Location: login.php');
 	exit;
 }
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'root';
-$DATABASE_PASS = '';
-$DATABASE_NAME = 'librarydb';
-$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-if (mysqli_connect_errno()) {
-	exit('Failed to connect to MySQL: ' . mysqli_connect_error());
-}
+
 // We don't have the password or email info stored in sessions so instead we can get the results from the database.
 $stmt = $con->prepare('SELECT password, adminEmail FROM admintb WHERE adminId = ?');
 // In this case we can use the account ID to get the account info.
@@ -41,26 +35,26 @@ $stmt->close();
   <a class="navbar-brand" href="#">LMS</a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
+    <ul class="navbar-nav ml-auto mr-2">
+      <li class="nav-item  active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
         <a class="nav-link" href="index.php">Home </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="issuedbooks.php">Issued books</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="returnedbooks.php">Returned books</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="publisher.php">Publishers</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="language.php">Languages</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="profile.php">Profile</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="logout.php">Logout</a>
       </li>
       

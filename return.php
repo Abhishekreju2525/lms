@@ -9,16 +9,11 @@
 
 	mysqli_query($con,$r);
 
-	// $s = "select returnDate from issuetb where issueId=$issueid";
-	// $query=mysqli_query($con,$s);
-	// $ss=mysqli_fetch_array($query);
-	// $actualreturnDate=$ss['returnDate'];
-	//  echo $ss['$returnDate'];
 
 
 	$stmt = $con->prepare('SELECT returnDate,returned from issuetb where issueId=?');
 
-	// In this case we can use the account ID to get the account info.
+
 	$stmt->bind_param('i', $_GET['issueid']);
 	$stmt->execute();
 	$stmt->bind_result($returnDate,$returned);
@@ -52,6 +47,6 @@ $u="CREATE TRIGGER finetrigger BEFORE INSERT ON returntb FOR EACH ROW BEGIN
 	mysqli_query($con,$t);
 	$v="DROP TRIGGER finetrigger";
 	mysqli_query($con,$v);
-	// echo 
+
 	header("location:returncheckout.php?issueid=$issueid");
 ?>

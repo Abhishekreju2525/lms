@@ -6,14 +6,7 @@ if (!isset($_SESSION['loggedin'])) {
 	header('Location: login.php');
 	exit;
 }
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'root';
-$DATABASE_PASS = '';
-$DATABASE_NAME = 'librarydb';
-$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-if (mysqli_connect_errno()) {
-	exit('Failed to connect to MySQL: ' . mysqli_connect_error());
-}
+
 
 include("connect.php");
 	// $book_id = $_GET['bookid'];
@@ -26,10 +19,20 @@ $stmt->bind_result($bookId,$bookTitle,$bookQty,$bookPrice,$languageId,$publisher
 $stmt->fetch();
 $stmt->close();
 
-	
-	
+$q= "select * from publishertb where publisherId=$publisherId";
+		$query=mysqli_query($con,$q);
+		$qq=mysqli_fetch_array($query);
+		
 
+		$publisherName=$qq['publisherName'];
+		$publisherAddress=$qq['publisherAddress'];
 
+$p= "select * from languagetb where languageId=$languageId";
+		$query1=mysqli_query($con,$p);
+		$pp=mysqli_fetch_array($query1);
+		
+
+$languageName=$pp['langName'];
 ?>
 
 <!DOCTYPE html>
@@ -49,20 +52,20 @@ $stmt->close();
   <a class="navbar-brand" href="#">LMS</a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
+  <ul class="navbar-nav ml-auto mr-2">
+      <li class="nav-item  active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
         <a class="nav-link" href="index2.php">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="mybooks.php">My books</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="userhistory.php">History</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="memberProfile.php">Profile</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="logout.php">Logout</a>
       </li>
       
@@ -94,7 +97,28 @@ $stmt->close();
 						<td>Available quantity :</td>
 						<td><?=$bookQty?></td>
 					</tr>
+					<tr>
+						<td>Publisher Id :</td>
+						<td><?=$publisherId?></td>
+					</tr>
+					<tr>
+						<td>Publisher Name :</td>
+						<td><?=$publisherName?></td>
+					</tr>
+					<tr>
+						<td>Publisher Address :</td>
+						<td><?=$publisherAddress?></td>
+					</tr>
+					<tr>
+						<td>Language ID :</td>
+						<td><?=$languageId?></td>
+					</tr>
+					<tr>
+						<td>Language Name :</td>
+						<td><?=$languageName?></td>
+					</tr>
 				</table>
+				
                 <a href="borrow.php?bookid=<?php echo $_GET['bookid'];?>&id=<?php echo $_SESSION['id'];?>">
 							<button class="btn btn-success">Borrow </button>
 						

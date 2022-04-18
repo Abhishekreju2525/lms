@@ -1,19 +1,13 @@
 <?php
 // We need to use sessions, so you should always start sessions using the below code.
+include("connect.php");
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
 	header('Location: login.php');
 	exit;
 }
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'root';
-$DATABASE_PASS = '';
-$DATABASE_NAME = 'librarydb';
-$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-if (mysqli_connect_errno()) {
-	exit('Failed to connect to MySQL: ' . mysqli_connect_error());
-}
+
 // We don't have the password or email info stored in sessions so instead we can get the results from the database.
 $stmt = $con->prepare('SELECT memberName,branchName,rollNumber,memberPhone, memberEmail,MemberDateofjoin,password FROM membertb WHERE memberId=?');
 
@@ -45,38 +39,43 @@ $stmt->close();
   <a class="navbar-brand" href="#">LMS</a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
+    <ul class="navbar-nav ml-auto mr-2">
+      <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
         <a class="nav-link" href="index2.php">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover">
 	  <a class="nav-link" href="mybooks.php">My books</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover">
 	  <a class="nav-link" href="userhistory.php">History</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover">
 	  <a class="nav-link" href="memberProfile.php">Profile</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item  active  mr-xl-4 mr-lg-2 mr-sm-2 navhover">
 	  <a class="nav-link" href="logout.php">Logout</a>
       </li>
+	 
       
     </ul>
     
   </div>
 </nav>
-		<div class="content">
+		<div class="content " >
 			<h2>My profile</h2>
-			<div>
-				<p>Account details</p>
+			<div  style="border-radius:20px;
+			color:#002440;background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(218,239,255,1) 0%, rgba(255,219,234,1) 100%, rgba(0,212,255,1) 100%);">
+
+
+				<button style="background:#093868;border-radius:40px;color:white;padding:3px 20px 8px 20px" disabled>Account details</button>
 				<table>
 
 				
 				<tr>
-						<td>Name</td>
+						<td><br>Name</td>
 						
-					<td><?php echo $_SESSION['name']?></td>
+					<td><br><?php echo $_SESSION['name']?></td>
 					</tr>
 					<tr>
 						<td>ID</td>

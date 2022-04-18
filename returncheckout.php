@@ -41,22 +41,23 @@ $issueid=$_GET['issueid'];
   <a class="navbar-brand" href="#">LMS</a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
+    <ul class="navbar-nav ml-auto mr-2">
+      <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
         <a class="nav-link" href="index2.php">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover">
 	  <a class="nav-link" href="mybooks.php">My books</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover">
 	  <a class="nav-link" href="userhistory.php">History</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover">
 	  <a class="nav-link" href="memberProfile.php">Profile</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item  active  mr-xl-4 mr-lg-2 mr-sm-2 navhover">
 	  <a class="nav-link" href="logout.php">Logout</a>
       </li>
+	 
       
     </ul>
     

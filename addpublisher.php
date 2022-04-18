@@ -20,26 +20,26 @@
   <a class="navbar-brand" href="#">LMS</a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
+    <ul class="navbar-nav ml-auto mr-2">
+      <li class="nav-item  active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="issuedbooks.php">Issued books</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="returnedbooks.php">Returned books</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="publisher.php">Publishers</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="language.php">Languages</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="profile.php">Profile</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="logout.php">Logout</a>
       </li>
       

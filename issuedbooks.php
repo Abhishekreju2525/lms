@@ -8,22 +8,7 @@ if (!isset($_SESSION['loggedin'])) {
 	exit;
 }
 
-	//on the second page you check if that session is true, else redirect to the login page  
-	//  if($_SESSION['loggedin'])
-	//  {
-	
-	//  }
-	// 	 //allow
-	//  else{
-	// 	 //redirect to the login page
-	// 	 header('location:login.php');
-	// 	}
-	// if (isset($_POST['btn'])) {
-	// 	$date=$_POST['idate'];
-	// 	$q="select * from bookstb where Date='$date'";
-	// 	$query=mysqli_query($con,$q);
-	// }
-	// else {
+
 		$q= "select * from issuetb";
 		$query=mysqli_query($con,$q);
 
@@ -36,10 +21,7 @@ if (!isset($_SESSION['loggedin'])) {
         $prepared = $con->prepare($query2);
 $prepared->execute();
 $result = $prepared->get_result();
-	// }
 
-	//set the session on the login page
-	
 ?>
 
 <html>
@@ -83,34 +65,31 @@ th{
   <a class="navbar-brand" href="#">LMS</a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
+    <ul class="navbar-nav ml-auto mr-2">
+      <li class="nav-item  active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="issuedbooks.php">Issued books</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="returnedbooks.php">Returned books</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="publisher.php">Publishers</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="language.php">Languages</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="profile.php">Profile</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
 	  <a class="nav-link" href="logout.php">Logout</a>
       </li>
       
     </ul>
-    <!-- <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form> -->
+  
   </div>
 </nav>
 		<div class="content">

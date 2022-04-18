@@ -48,10 +48,15 @@ $result = $prepared->get_result();
 </head>
 
 <style type="text/css">
+table{
+    border-radius: 1em;
+  overflow: hidden;background-color: #F9F9F9;
+  border:none;border-color: black;border-style: dashed;border-width:0.2px;
+  }
 .tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-size:14px;
+.tg td{border-color:black;border-style:solid;border-width:0.2px;font-size:12px;
   overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:0.5px;font-size:14px;
+.tg th{border-color:black;border-style:solid;border-width:0.2px;font-size:12px;
   font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
 .tg .tg-0lax{text-align:center;vertical-align:top}
 .table{
@@ -59,6 +64,7 @@ $result = $prepared->get_result();
     align-self: center;
     justify-content: center;
     width:100%;
+   
 }
 th{
     background-color:#144E6A;
@@ -66,43 +72,41 @@ th{
 	font-weight:normal;
 	text-transform: uppercase;
 }
+
 </style>
 <body class="loggedin">
-<nav class="navbar navbar-expand-lg navbar-dark bg-success navbarbgnew">
+<nav class="navbar navbar-expand-lg navbar-dark bg-success navbarbgnew" >
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand" href="#">LMS</a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-    <li class="nav-item active">
+    <ul class="navbar-nav ml-auto mr-2">
+      <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover ">
         <a class="nav-link" href="index2.php">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover">
 	  <a class="nav-link" href="mybooks.php">My books</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover">
 	  <a class="nav-link" href="userhistory.php">History</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item active mr-xl-4 mr-lg-2 mr-sm-2 navhover">
 	  <a class="nav-link" href="memberProfile.php">Profile</a>
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item  active  mr-xl-4 mr-lg-2 mr-sm-2 navhover">
 	  <a class="nav-link" href="logout.php">Logout</a>
-    
       </li>
+	 
       
     </ul>
-    <!-- <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form> -->
+    
   </div>
 </nav>
 		<div class="content">
 
-	<div class="container mt-5">
+	<div class="container mt-5" style="border:none !important;box-shadow:none !important;">
 	
 
 
